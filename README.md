@@ -23,7 +23,7 @@ Synth   살아남은 주장만 병합해 신뢰도·투표·출처가 달린 보
 
 ```bash
 # GitHub에 올린 경우
-claude plugin marketplace add <owner>/deep-research-ddg
+claude plugin marketplace add channel-spoonai/deep-research-ddg
 claude plugin install deep-research-ddg@deep-research-ddg
 
 # 로컬 폴더에서
@@ -94,3 +94,7 @@ DuckDuckGo를 우선 엔진으로 씁니다. 다만 DuckDuckGo는 같은 IP에�
 uv run --script skills/deep-research-ddg/scripts/deep_research_ddg.py --depth quick "질문"
 uv run --script skills/deep-research-ddg/scripts/deep_research_ddg.py --help
 ```
+
+## 라이선스
+
+[MIT](LICENSE)
