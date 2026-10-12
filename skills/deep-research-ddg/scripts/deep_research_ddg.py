@@ -168,6 +168,9 @@ def short(s, n=60) -> str:
 
 
 # ─── 최소 JSON 스키마 검증 ───
+# 로컬 모델은 도구 호출 인자에서 필드를 가끔 빠뜨린다. 서술용 문자열 필드는 없으면 ""로 채우고,
+# 판정에 쓰는 필드(refuted·sourceQuality·claims 등)가 빠졌을 때만 재시도한다.
+SOFT_FIELDS = {"analysis", "rationale", "publishDate", "counterSource", "snippet", "caveats"}
 def validate(obj, schema, path="$"):
     if "enum" in schema:
         if obj not in schema["enum"]:
@@ -184,7 +187,10 @@ def validate(obj, schema, path="$"):
             raise ValueError(f"{path}: expected object")
         for k in schema.get("required", []):
             if k not in obj:
-                raise ValueError(f"{path}: missing {k}")
+                if k in SOFT_FIELDS:  # 판단에 필수가 아닌 서술 필드는 빈 값으로 채운다
+                    obj[k] = ""
+                else:
+                    raise ValueError(f"{path}: missing {k}")
         for k, sub in schema.get("properties", {}).items():
             if k in obj:
                 obj[k] = validate(obj[k], sub, f"{path}.{k}")
