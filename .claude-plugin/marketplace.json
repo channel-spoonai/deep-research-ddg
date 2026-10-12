@@ -1,0 +1,14 @@
+{
+  "name": "deep-research-ddg",
+  "description": "deep-research-ddg plugin: deep research for local / non-Anthropic models in Claude Code",
+  "owner": {
+    "name": "yobuce"
+  },
+  "plugins": [
+    {
+      "name": "deep-research-ddg",
+      "source": "./",
+      "description": "Deep research with ddgs (DuckDuckGo-first) search and the session's own LLM endpoint — a local-model replacement for /deep-research."
+    }
+  ]
+}

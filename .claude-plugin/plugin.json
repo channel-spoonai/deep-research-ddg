@@ -1,0 +1,7 @@
+{
+  "name": "deep-research-ddg",
+  "version": "0.1.0",
+  "description": "Deep research for local and non-Anthropic models: DuckDuckGo-first web search (ddgs), source extraction, 3-vote adversarial claim verification and a cited report. Reuses the Claude Code session's own model endpoint.",
+  "author": { "name": "yobuce" },
+  "keywords": ["research", "duckduckgo", "ddgs", "local-llm", "web-search"]
+}
